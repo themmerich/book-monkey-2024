@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { Book } from '../shared/book';
+import { Book } from '../../shared/book';
 import { NgForOf, NgIf } from '@angular/common';
 import { BookListItemComponent } from '../book-list-item/book-list-item.component';
 

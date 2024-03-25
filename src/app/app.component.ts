@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { BookListComponent } from './book-list/book-list.component';
+import { BookListComponent } from './books/book-list/book-list.component';
 import { NgIf } from '@angular/common';
-import { BookDetailsComponent } from './book-details/book-details.component';
+import { BookDetailsComponent } from './books/book-details/book-details.component';
 import { Book } from './shared/book';
 
 @Component({

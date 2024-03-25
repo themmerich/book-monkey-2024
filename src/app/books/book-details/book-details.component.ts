@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Book } from '../shared/book';
+import { Book } from '../../shared/book';
 import { NgForOf, NgIf } from '@angular/common';
 
 @Component({
