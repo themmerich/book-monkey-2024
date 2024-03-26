@@ -1,7 +1,8 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Book } from '../../shared/book';
 import { NgForOf, NgIf } from '@angular/common';
 import { BookListItemComponent } from '../book-list-item/book-list-item.component';
+import { BookStoreService } from '../../shared/book-store.service';
 
 @Component({
   selector: 'bm-book-list',
@@ -12,32 +13,9 @@ import { BookListItemComponent } from '../book-list-item/book-list-item.componen
 })
 export class BookListComponent {
   books: Book[] = [];
-
-  @Output()
-  selectBook = new EventEmitter<Book>();
+  bookStoreService = inject(BookStoreService);
 
   constructor() {
-    this.books = [
-      {
-        isbn: '978-0006179085',
-        title: 'The Great and Secret Show',
-        authors: ['Clive Barker'],
-        published: '2009-08-06',
-        thumbnailUrl: 'assets/great_show.jpg',
-        description: 'The international bestseller!',
-      },
-      {
-        isbn: '978-0006179086',
-        title: 'Imajica',
-        authors: ['Clive Barker'],
-        published: '2010-10-21',
-        thumbnailUrl: 'assets/imajica.jpg',
-        description: 'English edition',
-      },
-    ];
-  }
-
-  doSelect(book: Book) {
-    this.selectBook.emit(book);
+    this.books = this.bookStoreService.getAll();
   }
 }

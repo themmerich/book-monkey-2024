@@ -55,7 +55,10 @@
       "rules": {
         "prettier/prettier": [
           "error",
-          { "parser":  "angular" }
+          {
+            "parser":  "angular",
+            "printWidth":  120
+          }
         ]
       }
     }

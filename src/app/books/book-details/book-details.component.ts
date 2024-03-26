@@ -1,22 +1,25 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Book } from '../../shared/book';
+import { Component, inject } from '@angular/core';
 import { NgForOf, NgIf } from '@angular/common';
+import { Book } from '../../shared/book';
+import { BookStoreService } from '../../shared/book-store.service';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'bm-book-details',
   standalone: true,
-  imports: [NgIf, NgForOf],
+  imports: [NgIf, NgForOf, RouterLink],
   templateUrl: './book-details.component.html',
   styleUrl: './book-details.component.css',
 })
 export class BookDetailsComponent {
-  @Input()
   book?: Book;
+  bookStoreService = inject(BookStoreService);
+  route = inject(ActivatedRoute);
 
-  @Output()
-  leave = new EventEmitter<void>();
-
-  doLeave() {
-    this.leave.emit();
+  constructor() {
+    this.route.paramMap.subscribe((params) => {
+      const isbn = params.get('isbn')!;
+      this.book = this.bookStoreService.getSingle(isbn);
+    });
   }
 }
