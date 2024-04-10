@@ -3,6 +3,7 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { BookListComponent } from './books/book-list/book-list.component';
 import { NgIf } from '@angular/common';
 import { BookDetailsComponent } from './books/book-details/book-details.component';
+import { AuthService } from './shared/auth.service';
 
 @Component({
   selector: 'bm-root',
@@ -18,4 +19,6 @@ import { BookDetailsComponent } from './books/book-details/book-details.componen
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {}
+export class AppComponent {
+  constructor(public auth: AuthService) {}
+}
