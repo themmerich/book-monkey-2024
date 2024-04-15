@@ -19,9 +19,16 @@ export class BookDetailsComponent {
   router = inject(Router);
 
   constructor() {
+    // TODO: subscribe on paramMap and then on service
+    /*this.book$ = this.route.paramMap
+      .pipe(
+        switchMap((params) => {
+          return this.bookStoreService.getSingle(params.get('isbn')!);
+        }),
+      )
+      .subscribe();*/
     const isbn = this.route.snapshot.paramMap.get('isbn')!;
     this.book$ = this.bookStoreService.getSingle(isbn);
-    // TODO: subscribe on paramMap and then on service
   }
 
   removeBook(isbn: string) {
