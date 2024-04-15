@@ -2,8 +2,12 @@
   <a routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page">Home</a>
   <a routerLink="/books" routerLinkActive="active" ariaCurrentWhenActive="page">Books</a>
   <div class="actions">
-    <button class="green" (click)="auth.login()" *ngIf="!auth.isAuthenticated">Login</button>
-    <button class="red" (click)="auth.logout()" *ngIf="auth.isAuthenticated">Logout</button>
+    @if (!auth.isAuthenticated) {
+      <button class="green" (click)="auth.login()">Login</button>
+    }
+    @if (auth.isAuthenticated) {
+      <button class="red" (click)="auth.logout()">Logout</button>
+    }
   </div>
 </nav>
 

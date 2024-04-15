@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { AsyncPipe, NgForOf, NgIf } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { Book } from '../../shared/book';
 import { BookStoreService } from '../../shared/book-store.service';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'bm-book-details',
   standalone: true,
-  imports: [NgIf, NgForOf, RouterLink, AsyncPipe],
+  imports: [RouterLink, AsyncPipe],
   templateUrl: './book-details.component.html',
   styleUrl: './book-details.component.css',
 })

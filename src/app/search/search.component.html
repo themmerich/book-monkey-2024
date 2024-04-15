@@ -7,12 +7,18 @@
   (input)="input$.next(searchInput.value)"
 />
 
-<ul class="search-results" *ngIf="results$ | async as results">
-  <li *ngFor="let book of results">
-    <a [routerLink]="['/books', book.isbn]">
-      {{ book.title }}
-      <p role="doc-subtitle">{{ book.subtitle }}</p>
-    </a>
-  </li>
-  <li *ngIf="!results.length">No results</li>
-</ul>
+@if (results$ | async; as results) {
+  <ul class="search-results">
+    @for (book of results; track book) {
+      <li>
+        <a [routerLink]="['/books', book.isbn]">
+          {{ book.title }}
+          <p role="doc-subtitle">{{ book.subtitle }}</p>
+        </a>
+      </li>
+    }
+    @if (!results.length) {
+      <li>No results</li>
+    }
+  </ul>
+}

@@ -10,13 +10,13 @@ import {
   tap,
 } from 'rxjs';
 import { Book } from '../shared/book';
-import { AsyncPipe, NgForOf, NgIf } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'bm-search',
   standalone: true,
-  imports: [AsyncPipe, RouterLink, NgIf, NgForOf],
+  imports: [AsyncPipe, RouterLink],
   templateUrl: './search.component.html',
   styleUrl: './search.component.css',
 })
