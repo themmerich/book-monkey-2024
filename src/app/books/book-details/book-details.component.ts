@@ -1,8 +1,8 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import { AsyncPipe } from '@angular/common';
 import { Book } from '../../shared/book';
 import { BookStoreService } from '../../shared/book-store.service';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -12,11 +12,11 @@ import { Observable } from 'rxjs';
   templateUrl: './book-details.component.html',
   styleUrl: './book-details.component.css',
 })
-export class BookDetailsComponent {
-  book$: Observable<Book>;
+export class BookDetailsComponent implements OnInit {
+  book$: Observable<Book> | undefined;
   bookStoreService = inject(BookStoreService);
-  route = inject(ActivatedRoute);
   router = inject(Router);
+  @Input() isbn: string = '';
 
   constructor() {
     // TODO: subscribe on paramMap and then on service
@@ -27,8 +27,8 @@ export class BookDetailsComponent {
         }),
       )
       .subscribe();*/
-    const isbn = this.route.snapshot.paramMap.get('isbn')!;
-    this.book$ = this.bookStoreService.getSingle(isbn);
+    //const isbn = this.route.snapshot.paramMap.get('isbn')!;
+    //this.book$ = this.bookStoreService.getSingle(isbn);
   }
 
   removeBook(isbn: string) {
@@ -37,5 +37,9 @@ export class BookDetailsComponent {
         this.router.navigateByUrl('/books');
       });
     }
+  }
+
+  ngOnInit(): void {
+    this.book$ = this.bookStoreService.getSingle(this.isbn);
   }
 }
