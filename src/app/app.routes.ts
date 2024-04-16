@@ -17,4 +17,9 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./books/books.routes').then((m) => m.bookRoutes),
   },
+  {
+    path: 'admin',
+    loadChildren: () =>
+      import('./admin/admin.routes').then((m) => m.adminRoutes),
+  },
 ];
