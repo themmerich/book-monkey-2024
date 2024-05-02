@@ -1,3 +1,5 @@
 <h1>Edit Book</h1>
 
-<bm-book-form *ngIf="book$ | async as book" [book]="book" (submitBook)="update($event)"></bm-book-form>
+@if (book$ | async; as book) {
+  <bm-book-form [book]="book" (submitBook)="update($event)"></bm-book-form>
+}

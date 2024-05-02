@@ -11,7 +11,9 @@
   <label>Authors</label>
   <button type="button" class="add" (click)="addAuthorControl()">+ Author</button>
   <fieldset formArrayName="authors">
-    <input *ngFor="let a of authors.controls; index as i" [attr.aria-label]="'Author ' + i" [formControlName]="i" />
+    @for (a of authors.controls; track a; let i = $index) {
+      <input [attr.aria-label]="'Author ' + i" [formControlName]="i" />
+    }
   </fieldset>
 
   <label for="description">Description</label>
