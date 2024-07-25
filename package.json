@@ -26,7 +26,7 @@
     "@angular/ssr": "^18.1.2",
     "angular-date-value-accessor": "^3.0.0",
     "book-monkey5-styles": "^1.0.4",
-    "express": "^4.18.2",
+    "express": "^4.19.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
