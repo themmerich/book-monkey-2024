@@ -20,13 +20,9 @@ export class BookDetailsComponent implements OnInit {
 
   constructor() {
     // TODO: subscribe on paramMap and then on service
-    /*this.book$ = this.route.paramMap
-      .pipe(
-        switchMap((params) => {
-          return this.bookStoreService.getSingle(params.get('isbn')!);
-        }),
-      )
-      .subscribe();*/
+    /*this.book$ = this.route.paramMap.pipe(
+        switchMap((params) => this.bookStoreService.getSingle(params.get('isbn')))
+    );*/
     //const isbn = this.route.snapshot.paramMap.get('isbn')!;
     //this.book$ = this.bookStoreService.getSingle(isbn);
   }
