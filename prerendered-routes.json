@@ -1,9 +1,0 @@
-{
-  "routes": [
-    "/admin",
-    "/admin/create",
-    "/books",
-    "/books/list",
-    "/home"
-  ]
-}
