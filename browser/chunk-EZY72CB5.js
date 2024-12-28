@@ -1,0 +1,1 @@
+import{a as o,b as t}from"./chunk-ZKRMSTQ5.js";import"./chunk-UQCZH3EN.js";var p=[{path:"",redirectTo:"list",pathMatch:"full"},{path:"list",component:o,title:"Book List"},{path:":isbn",component:t,title:"Book Details"}];export{p as bookRoutes};
